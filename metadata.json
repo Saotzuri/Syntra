@@ -1,14 +1,11 @@
 {
-    "name": "Syntra",
-    "creator": "D4rkswift",
-    "description": "Syntra is a Config libarary",
-    "version": "0.1.7",
-    "entry": "index.js",
-    "requires": [
-      "tska",
-      "PogData",
-      "FileUtilities",
-      "DocGuiLib",
-      "Elementa"
-    ]
-  }
+  "name": "Syntra",
+  "creator": "Saotzuri",
+  "description": "Library for other modules",
+  "version": "1.0.0",
+  "entry": "index.js",
+  "requires": [
+    "Amaterasu",
+    "RenderLibV2"
+  ]
+}
