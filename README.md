@@ -1,1 +1,1 @@
-# Synta
+# Syntra
