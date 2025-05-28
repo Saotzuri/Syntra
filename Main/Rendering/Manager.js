@@ -1,8 +1,8 @@
-import { UIBlock, WindowScreen, UIRoundedRectangle, CenterConstraint, UIText } from "../../Elementa";
+import { UIBlock, WindowScreen, UIRoundedRectangle, CenterConstraint, UIText } from "../../../Elementa";
 import Handler from "./Handler";
-import Chat from "../general/Chat";
+import Chat from "../Utils/Chat";
 import BaseElement from "./Element";
-import PogObject from "../../PogData";
+import PogObject from "../../../PogData";
 
 const File = Java.type("java.io.File");
 const chat = Chat.chat;
@@ -27,11 +27,11 @@ class Manager {
             chat("&aOverlay opened!");
         });
 
-        const F = new File("./config/DSLibraries")
+        const F = new File("./config/Syntra")
         if (!F.exists()) F.mkdirs();
 
         this.pogData = new PogObject(
-            "../../../config/DSLibraries", 
+            "../../../config/Syntra", 
             { elements: {} }, 
             "elements.json"
         );

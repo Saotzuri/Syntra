@@ -1,24 +1,24 @@
 // ----------------------------------------------
 // Importing all the Functions/Classes
-import TickTask from './general/TickTask';
-import ItemManagement from './general/ItemManagement';
-import MouseTweaks from './general/MouseTweaks';
-import World from './general/World';
-import Inventory from './general/Inventory';
-import McFormattingCodes from './general/McFormattingCodes';
-import Chat from './general/Chat';
-import Delay from './general/Delay';
-import Countdown from './general/Countdown';
-import Session from './general/Session';
-import "./general/Login";
-import MobDetect from './general/MobDetect';
+import Loader from "./Control/loader";
+import TickTask from './Main/Utils/TickTask';
+import ItemManagement from './Main/Utils/ItemManagement';
+import MouseTweaks from './Main/Utils/MouseTweaks';
+import World from './Main/Utils/World';
+import Inventory from './Main/Utils/Inventory';
+import McFormattingCodes from './Main/Utils/McFormattingCodes';
+import Chat from './Main/Utils/Chat';
+import Delay from './Main/Utils/Delay';
+import Countdown from './Main/Components/Countdown';
+import Session from './Main/UAC/Session';
+import "./Main/UAC/Login";
+import MobDetect from './Main/Utils/MobDetect';
 import settings, { getConfig } from "./config";
-// import socket from "../SBOSOCKET";
-import Effects from "./general/Effects";
-import Render from "./general/Render";
-import "./general/AutoFish";
-import Manager from './overlays/Manager';
-import Handler from './overlays/Handler';
+import Effects from "./Main/Components/Effects";
+import Render from "./Main/Rendering/Render";
+import "./Main/UAC/AutoFish";
+import Manager from './Main/Rendering/Manager';
+import Handler from './Main/Rendering/Handler';
 import getPing from "./server/ping";
 import { UIBlock, UIText, ChildBasedSizeConstraint, SiblingConstraint } from '../Elementa';
 import { getConfig } from './config';
@@ -287,3 +287,5 @@ export const drawMob = MobDetect.drawMob;
  * @param {number} y - The y-coordinate to render the text at.
  */
 export const simpleString = Render.simpleString;
+
+Loader.setLoading(false);
