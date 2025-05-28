@@ -1,6 +1,6 @@
 import Render from "../Main/Rendering/Render"
 import Chat from "../Main/Utils/Chat"
-import getPing from "../server/ping"
+import getPing from "../Main/Server/ping"
 import Effects from "../Main/Components/Effects"
 import { UIBlock, UIText, SiblingConstraint, ChildBasedSizeConstraint } from "../../Elementa"
 

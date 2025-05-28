@@ -1,6 +1,6 @@
 const C16PacketClientStatus = net.minecraft.network.play.client.C16PacketClientStatus
 const S37PacketStatistics = net.minecraft.network.play.server.S37PacketStatistics
-import Promise from "../../PromiseV2";
+import Promise from "../../../PromiseV2";
 
 let pendingPing = null;
 let lastRequestTime = 0;
