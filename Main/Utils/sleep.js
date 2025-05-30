@@ -1,4 +1,3 @@
-// Credit to this module for the function https://chattriggers.com/modules/v/sleep
 export default function sleep(timeout, callback) {
     let stepCount = 0;
     let stepHandler = register('step', () => {
