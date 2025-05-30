@@ -67,6 +67,7 @@ The `/syntradev` command allows you to launch [Visual Studio Code](https://code.
 /syntradev
 ```
 → Opens: config/ChatTriggers/modules/ in VS Code
+
 ❗ Requirements
 - VS Code must be installed using the default user installer, not the system-wide setup.
 - The code executable must be located at the default path. Otherwise, edit the launcher script to match your custom path.
@@ -117,6 +118,8 @@ Tags: Hypixel, Skyblock, GUI
 ❗ Notes
 - If the module name does not exist, an error is shown with detailed hover info.
 - Uses a lightweight fetch wrapper for API requests (tska/polyfill/Fetch).
+
+---
 
 ### Scheduling and Tasks
 ```js
