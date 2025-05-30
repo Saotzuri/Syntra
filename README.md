@@ -38,6 +38,89 @@
 ## 📚 Usage & API Reference
 All exports from the module are designed for ease of use and cover a wide range of tasks:
 
+---
+### 🧰 VS Code Launcher Command: `/syntradev`
+
+This module includes a powerful developer utility to speed up your workflow when working with ChatTriggers modules on **Windows**:
+
+#### 💡 What it does
+
+The `/syntradev` command allows you to launch [Visual Studio Code](https://code.visualstudio.com/) directly from inside Minecraft:
+
+- `/syntradev` → Opens your general ChatTriggers `modules/` folder in VS Code.
+- `/syntradev <moduleName>` → Opens a specific module folder (like `Syntra`, `AutoFish`, etc.) directly.
+
+#### 🔧 Details
+
+- Only works on **Windows**, using the default install location of VS Code:  
+  `%LOCALAPPDATA%/Programs/Microsoft VS Code/Code.exe`
+- Supports **tab-completion** for module names.
+- Checks if the target module folder actually exists before launching.
+
+#### 🛠️ Example
+
+```bash
+/syntradev Syntra
+```
+→ Opens: config/ChatTriggers/modules/Syntra/ in VS Code
+```bash
+/syntradev
+```
+→ Opens: config/ChatTriggers/modules/ in VS Code
+
+❗ Requirements
+- VS Code must be installed using the default user installer, not the system-wide setup.
+- The code executable must be located at the default path. Otherwise, edit the launcher script to match your custom path.
+
+---
+
+### 📊 ChatTriggers Module Stats Viewer: `/syntramodulestats`
+
+This utility lets you view real-time information about any module published on [ChatTriggers.com](https://chattriggers.com).
+
+#### 🔧 Command Usage
+
+- `/syntramodulestats <moduleName>`
+- Aliases: `/syntramodstats`, `/synmustats`, `/synstats`
+
+#### 💡 Purpose
+
+The command fetches public data about a module using the [ChatTriggers API](https://chattriggers.com/api/modules/...) and displays key information in a formatted message.
+
+#### 📋 Shown Data Includes:
+
+- 🧩 Module name  
+- ⬇️ Download count  
+- 👤 Author name and rank (e.g., ADMIN, USER, etc.)  
+- 🛠 Latest release version  
+- 🧪 Compatible ChatTriggers version  
+- 🏷 Tags
+
+#### 🧪 Example
+
+```bash
+/syntramodulestats sbo
+```
+```yaml
+------------------------------
+Module Stats for sbo:
+
+▶ Name: sbo  
+▶ Downloads: 107793 
+▶ Author: [DEFAULT] SkyblockOverhaul  
+▶ Latest Version: 0.5.4
+▶ Compatible ChatTriggers Version: 2.2.0 
+
+Tags: Hypixel, Skyblock, GUI
+------------------------------
+```
+
+❗ Notes
+- If the module name does not exist, an error is shown with detailed hover info.
+- Uses a lightweight fetch wrapper for API requests (tska/polyfill/Fetch).
+
+---
+
 ### Scheduling and Tasks
 ```js
 import { scheduleTickTask } from "Syntra";
