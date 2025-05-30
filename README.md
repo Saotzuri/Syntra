@@ -33,7 +33,7 @@
     ```bash
     /ChatTriggers/modules/Syntra/
     ```
-3. Reload or restart Minecraft to activate the module.
+3. /ct reload or restart Minecraft to activate the module.
 
 ## 📚 Usage & API Reference
 All exports from the module are designed for ease of use and cover a wide range of tasks:
