@@ -13,6 +13,7 @@ import MobDetect from './Main/Utils/MobDetect';
 import MouseTweaks from './Main/Utils/MouseTweaks';
 import TickTask from './Main/Utils/TickTask';
 import World from './Main/Utils/World';
+import EventEmitter from "./Main/Utils/EventEmitter";
 // {----UAC----}
 import Session from './Main/UAC/Session';
 import "./Main/UAC/AutoFish";
@@ -22,7 +23,10 @@ import Countdown from './Main/Components/Countdown';
 // {----Rendering----}
 import Render from "./Main/Rendering/Render";
 // {----Dev----}
-import "./Main/Dev";
+import "./Main/Dev/VSC-Opener";
+import "./Main/Dev/ModuleStats";
+// {----Chat----}
+import "./Main/Chat/EmoteReplacer";
 
 // All the exports and how to use them
 /**
