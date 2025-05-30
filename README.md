@@ -1,6 +1,6 @@
 # Syntra
 
-## 🔧 Purpose
+### 🔧 Purpose
 
 **Syntra** is a personal ChatTriggers module playground designed for rapid development, testing, and experimentation within the Minecraft modding environment.
 
