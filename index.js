@@ -1,22 +1,28 @@
 // ----------------------------------------------
 // Importing all the Functions/Classes
+// {----Main----}
 import Loader from "./Control/loader";
 import "./Control/test";
-import TickTask from './Main/Utils/TickTask';
-import ItemManagement from './Main/Utils/ItemManagement';
-import MouseTweaks from './Main/Utils/MouseTweaks';
-import World from './Main/Utils/World';
-import Inventory from './Main/Utils/Inventory';
-import McFormattingCodes from './Main/Utils/McFormattingCodes';
+// {----Utils----}
 import Chat from './Main/Utils/Chat';
 import Delay from './Main/Utils/Delay';
-import Countdown from './Main/Components/Countdown';
-import Session from './Main/UAC/Session';
-import "./Main/UAC/Login";
+import Inventory from './Main/Utils/Inventory';
+import ItemManagement from './Main/Utils/ItemManagement';
+import McFormattingCodes from './Main/Utils/McFormattingCodes';
 import MobDetect from './Main/Utils/MobDetect';
-import Render from "./Main/Rendering/Render";
+import MouseTweaks from './Main/Utils/MouseTweaks';
+import TickTask from './Main/Utils/TickTask';
+import World from './Main/Utils/World';
+// {----UAC----}
+import Session from './Main/UAC/Session';
 import "./Main/UAC/AutoFish";
-
+import "./Main/UAC/Login";
+// {----Components----}
+import Countdown from './Main/Components/Countdown';
+// {----Rendering----}
+import Render from "./Main/Rendering/Render";
+// {----Dev----}
+import "./Main/Dev";
 
 // All the exports and how to use them
 /**
