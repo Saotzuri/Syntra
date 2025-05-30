@@ -1,9 +1,11 @@
 import Render from "../Main/Rendering/Render"
 import Chat from "../Main/Utils/Chat"
-import getPing from "../Main/Server/ping"
+import Ping from "../Main/Server/ping"
 import Effects from "../Main/Components/Effects"
+import RAM from "../Main/Resources/RAM"
 import { UIBlock, UIText, SiblingConstraint, ChildBasedSizeConstraint } from "../../Elementa"
 
+const getPing = Ping.getPing
 
 const smolderString = new Render.simpleString("&aSmoldering: ")
 const fps = new Render.simpleString("FPS: 200")
@@ -99,7 +101,7 @@ register("command", (arg, ...args) => {
     // chat(`&6[SBO] &e${arg}`);
     // let effect = Effects.effects.getEffect(arg)
     // if (effect) chat(`Effect: ${effect.name} Remaining: ${effect.remaining}`)
-    ChatLib.command("testtetter", true);
+    ChatLib.chat("RAM Usage: " + JSON.stringify(RAM.getMemoryPercentage()));
 }).setName("testds");
 
 
