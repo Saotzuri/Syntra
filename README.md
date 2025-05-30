@@ -85,13 +85,17 @@ chat("Hello, Skyblock!");      // sends chat message
 executeCommand("/warp hub");   // runs the warp command
 ```
 
-### Delay and Countdown
+### Delay, Sleep and Countdown
 ```js
-import { delay, CountdownTimer } from "Syntra";
+import { delay, CountdownTimer, sleep } from "Syntra";
 
 delay(() => {
     console.log("This runs after 2 seconds");
 }, 2000);
+
+sleep(500, () => {
+    console.log("Executed after ~500ms"); // Delays the execution of a callback function using a step-based timer. Uses either `setFps` for high-frequency delays (< 1000 ms) or `setDelay` otherwise.
+});
 
 const countdown = new CountdownTimer(10);
 countdown.onTick = seconds => console.log(`Seconds left: ${seconds}`);
@@ -109,10 +113,12 @@ console.log("Proxy:", getProxy());
 
 ### Mob Detection & Rendering
 ```js
-import { drawMob, simpleString } from "Syntra";
+import { drawMob, simpleString, drawBox, trace } from "Syntra";
 
 drawMob("Zombie");             // adds Zombie to detected mobs
 simpleString("Hello World", 10, 10);  // renders "Hello World" at (10,10) on screen
+drawBox(100, 64, 100, 1, 2, 1, 255, 0, 0, 255, true, 2); // Draws a box at the specified coordinates with the given color and alpha value.
+trace(100, 64, 100, 255, 0, 0, 255, "calc", 2); // Draws a line from the player's position to the specified coordinates with the given color and width.
 ```
 
 ### Minecraft Formatting Codes
@@ -124,6 +130,24 @@ chat(McCodes.RED + "This text is red!" + McCodes.RESET);
 Colors include McCodes.RED, McCodes.GREEN, McCodes.GOLD, and many more.
 
 Formatting codes include McCodes.BOLD, McCodes.UNDERLINE, McCodes.ITALIC, etc.
+
+### Server Stats
+```js
+import { getPing, getFps } from "Syntra"
+
+getPing().then(pingText => { print(pingText) }) // gets the current ping from the server and returns a promise that resolves to the current ping.
+getFps() // gets the curent Client Fps
+```
+
+### Event Emitter
+```js
+import { EventEmitter } from "Syntra"
+
+EventEmitter.on('myEvent', data => console.log('Received:', data)); // Registers a callback for a given event name.
+EventEmitter.emit('myEvent', { hello: 'world' }); // Emits an event, calling all registered callbacks with optional data.
+```
+
+
 
 ## 💡 Configuration
 You can customize emotes, toggle features, or adjust delays by editing the module’s config files in:
