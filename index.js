@@ -26,6 +26,7 @@ import Countdown from './Main/Components/Countdown';
 import Render from "./Main/Rendering/Render";
 // {----Dev----}
 import "./Main/Dev/VSC-Opener";
+import "./Main/Dev/VSC-Closer";
 import "./Main/Dev/ModuleStats";
 // {----Chat----}
 import "./Main/Chat/EmoteReplacer";
