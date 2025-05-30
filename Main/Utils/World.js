@@ -1,4 +1,4 @@
-import delay from './Delay';
+import delay from "./Delay";
 function getZone() {
     let lines = Scoreboard.getLines();
     if (!lines) return "None";

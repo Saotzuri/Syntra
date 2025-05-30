@@ -1,14 +1,13 @@
-import ItemManagement from "./ItemManagement";
-import TickTask from "./TickTask";
-import MouseTweaks from "./MouseTweaks";
-import Chat from "./Chat";
-import World from "./World";
-import { Keybind } from "../../tska/shared/Keybind";
-import settings from "../config";
+import ItemManagement from "../Utils/ItemManagement";
+import TickTask from "../Utils/TickTask";
+import MouseTweaks from "../Utils/MouseTweaks";
+import Chat from "../Utils/Chat";
+import World from "../Utils/World";
+import { Keybind } from "../../../tska/shared/Keybind";
+import settings from "../../config";
 
 const swapItem = ItemManagement.swapItem;
 const scheduleTickTask = TickTask.scheduleTickTask;
-const setSeverTickRegister = TickTask.setSeverTickRegister;
 const setStopCondition = TickTask.setStopCondition;
 const rightClick = MouseTweaks.rightClick;
 const chat = Chat.chat;
@@ -19,7 +18,7 @@ let isFishingInProgress = false;
 let isRegistered = false
 let fishingState = settings().AutoFish;
 
-const fishingKey = new Keybind("DsFishing", Keyboard.KEY_NONE, "DsLibraries");
+const fishingKey = new Keybind("Fishing", Keyboard.KEY_NONE, "Syntra");
 fishingKey.registerKeyPress(() => {
     if (!settings().AutoFish) return;
     fishingState ? stop() : start();
@@ -29,17 +28,16 @@ function updateAutoFishState(state, message) {
     fishingState = state;
     if (!settings().HideFishMessage) chat(message);
     else print(message.removeFormatting());
-    setSeverTickRegister(state);
     if (state) isRegistered = true;
     else isRegistered = false;
 }
 
 function start() {
-    updateAutoFishState(true, "&l&n&b[DsFishing] &r&aStarted!");
+    updateAutoFishState(true, "&l&n&b[Syntra] &r&a Fishing Started!");
 }
 
 function stop() {
-    updateAutoFishState(false, "&l&n&b[DsFishing] &r&cStopped!");
+    updateAutoFishState(false, "&l&n&b[Syntra] &r&a Fishing Stopped!");
 }
 
 function executeStart(world) {
@@ -59,7 +57,7 @@ function executeStart(world) {
 register("command", () => {
     if (!settings().AutoFish) return;
     fishingState ? stop() : start();
-}).setName("DsFish");
+}).setName("SynFish");
 
 const getSoundName = packet => packet.func_149212_c();
 const getPitch = packet => packet.func_149209_h();

@@ -1,4 +1,4 @@
-import RenderLibV2 from "../../RenderLibV2";
+import RenderLibV2 from "../../../RenderLibV2";
 /**
  * @param {number} x - x coordinate
  * @param {number} y - y coordinate

@@ -1,142 +1,33 @@
 // ----------------------------------------------
 // Importing all the Functions/Classes
-import TickTask from './general/TickTask';
-import ItemManagement from './general/ItemManagement';
-import MouseTweaks from './general/MouseTweaks';
-import World from './general/World';
-import Inventory from './general/Inventory';
-import McFormattingCodes from './general/McFormattingCodes';
-import Chat from './general/Chat';
-import Delay from './general/Delay';
-import Countdown from './general/Countdown';
-import Session from './general/Session';
-import "./general/Login";
-import MobDetect from './general/MobDetect';
-import settings, { getConfig } from "./config";
-// import socket from "../SBOSOCKET";
-import Effects from "./general/Effects";
-import Render from "./general/Render";
-import "./general/AutoFish";
-import Manager from './overlays/Manager';
-import Handler from './overlays/Handler';
-import getPing from "./server/ping";
-import { UIBlock, UIText, ChildBasedSizeConstraint, SiblingConstraint } from '../Elementa';
-import { getConfig } from './config';
+// {----Main----}
+import Loader from "./Control/loader";
+import "./Control/test";
+// {----Utils----}
+import Chat from './Main/Utils/Chat';
+import Delay from './Main/Utils/Delay';
+import Inventory from './Main/Utils/Inventory';
+import ItemManagement from './Main/Utils/ItemManagement';
+import McFormattingCodes from './Main/Utils/McFormattingCodes';
+import MobDetect from './Main/Utils/MobDetect';
+import MouseTweaks from './Main/Utils/MouseTweaks';
+import TickTask from './Main/Utils/TickTask';
+import World from './Main/Utils/World';
+import EventEmitter from "./Main/Utils/EventEmitter";
+// {----UAC----}
+import Session from './Main/UAC/Session';
+import "./Main/UAC/AutoFish";
+import "./Main/UAC/Login";
+// {----Components----}
+import Countdown from './Main/Components/Countdown';
+// {----Rendering----}
+import Render from "./Main/Rendering/Render";
+// {----Dev----}
+import "./Main/Dev/VSC-Opener";
+import "./Main/Dev/ModuleStats";
+// {----Chat----}
+import "./Main/Chat/EmoteReplacer";
 
-const smolderString = new Render.simpleString("&aSmoldering: ")
-const fps = new Render.simpleString("FPS: 200")
-const ping = new Render.simpleString("Ping: 100")
-register("renderOverlay", () => {
-    let remaining = Effects.effects.getTime("Smoldering")
-    if (remaining) {
-        smolderString.setText(`&aSmoldering: &e${remaining}`)
-    } else {
-        smolderString.setText("&aSmoldering: &e0")
-    }
-    smolderString.render()
-    fps.setText(`FPS: ${Client.getFPS()}`)
-    fps.setX(10).setY(5).render()
-    getPing().then(pingText => {
-        ping.setText(`Ping: ${pingText}`)
-    })
-    ping.setX(60).setY(5).render()
-    // ChatLib.chat(`&aSmoldering: &e${remaining}`)
-}) 
-
-
-
-//----------------------------------------------
-// Testing Area
-// let manager = new Manager().setCommand("testmove", "tm")
-// const Fps = new UIText("FPS: 200")
-// const Ping = new UIText("Ping: 100")
-// manager.addElement("myElement1", "Element", {
-//         element: new UIBlock()
-//             .setX((0).pixels())
-//             .setY((0).pixels())
-//             .setWidth(new ChildBasedSizeConstraint())
-//             .setHeight(new ChildBasedSizeConstraint())
-//             .setColor(Handler.Color([0, 0, 0, 0]))
-//             .addChild(
-//                 Fps.setColor(Handler.Color([255, 255, 255, 255]))
-//                 .setX((0).pixels())
-//                 .setY((0).pixels())
-//             )
-//             .addChild(
-//                 Ping.setColor(Handler.Color([255, 255, 255, 255]))
-//                 .setX(new SiblingConstraint(5))
-//                 .setY((0).pixels())
-//             ),
-//         texts: {
-//             line1: Fps, 
-//             line2: Ping
-//         }
-//     }
-// );
-
-// register("tick", () => {
-//     manager.updateElementText("myElement1", "line1", "FPS: " + Client.getFPS());
-//     getPing().then(ping => {
-//         manager.updateElementText("myElement1", "line2", "Ping: " + ping);
-//     });
-// })
-
-// socket.addEvent("custom_event")
-// socket.addEvent("testSend")
-// socket.on("custom_event", (d) => {
-//     ChatLib.chat(`&6[SBO] &e${d.data}`);
-// })
-// socket.on("testSend", (d) => {
-//     print(JSON.stringify(d));
-//     ChatLib.chat(`&6[SBO] &e${d.data}`);
-// })
-register("command", (arg1, arg2, ...args) => {
-    let x = 0
-    let y = 0
-    if (arg1) x = parseInt(arg1)
-    if (arg2) y = parseInt(arg2)
-    smolderString.setX(x).setY(y)
-}).setName("smolder")
-register("command", (arg, ...args) => {
-// 
-// &r&c&m-----------------------------------------------------&r
-// &r&cYou are currently muted for a Minor Chat Infraction.&r
-// &r&7Your mute will expire in &r&c18d 8h 2m 43s&r
-// &r &r&r&r
-// &r&7Find out more here: &r&ewww.hypixel.net/mutes&r
-// &r&7Mute ID: &r&f#4URRF43D&r
-// &r&c&m-----------------------------------------------------&r
-
-    // simulate the above messages with Chatlib.simulateChat(message)
-    // ChatLib.simulateChat("&r&c&m-----------------------------------------------------&r")
-    // ChatLib.simulateChat("&r&cYou are currently muted for a Minor Chat Infraction.&r")
-    // ChatLib.simulateChat("&r&7Your mute will expire in &r&c18d 8h 2m 43s&r")
-    // ChatLib.simulateChat("&r &r&r&r")
-    // ChatLib.simulateChat("&r&7Find out more here: &r&ewww.hypixel.net/mutes&r")
-    // ChatLib.simulateChat("&r&7Mute ID: &r&f#4URRF43D&r")
-    // ChatLib.simulateChat("&r&c&m-----------------------------------------------------&r")
-    // socket.send("custom_event", { data: { message: "Hello from the client!" } });#
-
-    // chat(`&6[SBO] &e${arg}`);
-    // let effect = Effects.effects.getEffect(arg)
-    // if (effect) chat(`Effect: ${effect.name} Remaining: ${effect.remaining}`)
-    ChatLib.command("testtetter", true);
-}).setName("testds");
-
-
-// ITEM_NAME = "fire freeze"
-// register("clicked", (x, y, button, pressed) => {
-//     if (button === 1 && pressed) { // 1 = Right-click
-//         if (isItemRightClicked(ITEM_NAME)) {
-//             ChatLib.chat(`§aDu hast das Item "${ITEM_NAME}" mit Rechtsklick verwendet!`);
-//         }
-//     }
-// });
-
-register("command", () => {
-    chat("Testing the executeCommand function");
-}).setName("testec");
-//----------------------------------------------
 // All the exports and how to use them
 /**
  * - Runs the given function after specified server ticks have passed
@@ -287,3 +178,5 @@ export const drawMob = MobDetect.drawMob;
  * @param {number} y - The y-coordinate to render the text at.
  */
 export const simpleString = Render.simpleString;
+
+Loader.setLoading(false);

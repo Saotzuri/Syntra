@@ -8,4 +8,8 @@ function executeCommand(command) {
     ChatLib.command(command, true);
 }
 
-export default { chat, executeCommand };
+function chatBreak(char){
+    ChatLib.chat(ChatLib.getChatBreak(char));
+}
+
+export default { chat, executeCommand, chatBreak };

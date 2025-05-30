@@ -6,6 +6,7 @@
   "entry": "index.js",
   "requires": [
     "Amaterasu",
-    "RenderLibV2"
+    "RenderLibV2",
+    "tska"
   ]
 }

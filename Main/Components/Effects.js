@@ -1,5 +1,5 @@
-import sleep from "./sleep"
-import World from "./World"
+import sleep from "../Utils/sleep"
+import World from "../Utils/World"
 const isInSkyblock = World.isInSkyblock
 class Effects {
     constructor() {
