@@ -56,4 +56,4 @@ register("worldUnload", () => {
     }
 });
 
-export default getPing;
+export default { getPing };
