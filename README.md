@@ -147,14 +147,6 @@ EventEmitter.on('myEvent', data => console.log('Received:', data)); // Registers
 EventEmitter.emit('myEvent', { hello: 'world' }); // Emits an event, calling all registered callbacks with optional data.
 ```
 
-
-
-## 💡 Configuration
-You can customize emotes, toggle features, or adjust delays by editing the module’s config files in:
-```bash
-/ChatTriggers/modules/Syntra/config/
-```
-
 ## 📝 License
 This project is licensed under the [AGPL-3.0 License](LICENSE).
 
