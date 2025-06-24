@@ -22,6 +22,7 @@ import "./Main/UAC/AutoFish";
 import "./Main/UAC/Login";
 // {----Components----}
 import Countdown from './Main/Components/Countdown';
+import Shards from "./Main/Components/Shards";
 // {----Rendering----}
 import Render from "./Main/Rendering/Render";
 // {----Dev----}
@@ -33,6 +34,13 @@ import "./Main/Chat/EmoteReplacer";
 // {----Server----}
 import Ping from "./Main/Server/ping";
 import Fps from "./Main/Server/fps";
+
+register("command", () => {
+    //json stringyfy
+    print(`Total Attributes: ${Shards.attributes.getAttributes().length}`);
+    print(JSON.stringify(Shards.attributes.getAttributes(), null, 0));
+    // print length of attributes
+}).setName("shards");
 
 // All the exports and how to use them
 /**

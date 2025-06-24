@@ -5,6 +5,7 @@ import Effects from "../Main/Components/Effects"
 import RAM from "../Main/Resources/RAM"
 import { UIBlock, UIText, SiblingConstraint, ChildBasedSizeConstraint } from "../../Elementa"
 
+const chat = Chat.chat
 const getPing = Ping.getPing
 
 const smolderString = new Render.simpleString("&aSmoldering: ")
@@ -25,7 +26,7 @@ register("renderOverlay", () => {
     })
     ping.setX(60).setY(5).render()
     // ChatLib.chat(`&aSmoldering: &e${remaining}`)
-}) 
+})
 
 // Testing Area
 // let manager = new Manager().setCommand("testmove", "tm")
@@ -79,14 +80,14 @@ register("command", (arg1, arg2, ...args) => {
     smolderString.setX(x).setY(y)
 }).setName("smolder")
 register("command", (arg, ...args) => {
-// 
-// &r&c&m-----------------------------------------------------&r
-// &r&cYou are currently muted for a Minor Chat Infraction.&r
-// &r&7Your mute will expire in &r&c18d 8h 2m 43s&r
-// &r &r&r&r
-// &r&7Find out more here: &r&ewww.hypixel.net/mutes&r
-// &r&7Mute ID: &r&f#4URRF43D&r
-// &r&c&m-----------------------------------------------------&r
+    // 
+    // &r&c&m-----------------------------------------------------&r
+    // &r&cYou are currently muted for a Minor Chat Infraction.&r
+    // &r&7Your mute will expire in &r&c18d 8h 2m 43s&r
+    // &r &r&r&r
+    // &r&7Find out more here: &r&ewww.hypixel.net/mutes&r
+    // &r&7Mute ID: &r&f#4URRF43D&r
+    // &r&c&m-----------------------------------------------------&r
 
     // simulate the above messages with Chatlib.simulateChat(message)
     // ChatLib.simulateChat("&r&c&m-----------------------------------------------------&r")
@@ -101,8 +102,23 @@ register("command", (arg, ...args) => {
     // chat(`&6[SBO] &e${arg}`);
     // let effect = Effects.effects.getEffect(arg)
     // if (effect) chat(`Effect: ${effect.name} Remaining: ${effect.remaining}`)
-    ChatLib.chat("RAM Usage: " + JSON.stringify(RAM.getMemoryPercentage()));
+    // ChatLib.chat("RAM Usage: " + JSON.stringify(RAM.getMemoryPercentage()));
+    ChatLib.simulateChat("&r&4[BOSS] Goldor&r&c: &r&cYOU ARE FACE TO FACE WITH GOLDOR!&r")
 }).setName("testds");
+
+const p5Trigger = ["&r&4[BOSS] Goldor&r&c: &r&cYOU ARE FACE TO FACE WITH GOLDOR!&r"]
+
+register("chat", (event) => {
+    let formatted = ChatLib.getChatMessage(event, true)
+    if (p5Trigger.some(trigger => formatted.includes(trigger))) {
+        ChatLib.command("p5trigger", true)
+    }
+    else return;
+})
+
+register("command", () => {
+    chat("P5 Triggered!")
+}).setName("p5trigger");
 
 
 // ITEM_NAME = "fire freeze"

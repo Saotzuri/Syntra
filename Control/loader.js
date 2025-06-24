@@ -6,11 +6,11 @@ let loading = true;
 const init = register("step", () => {
     if (!World.isInSkyblock()) return;
     chat("&l&n&b[Snytra] &r&aLoading...");
-    chatBreak("&b-");
     if (loading) return;
+    chatBreak("&b&m-");
     chat("&l&n&b[Snytra] &r&aLoaded successfully!");
     chat("&l&n&b[Snytra] &r&aType &b/syntra &ato open the overlay!");
-    chatBreak("&b-");
+    chatBreak("&b&m-");
     chat("&l&n&b[Snytra] &r&aLet the fun begin!");
     init.unregister();
 }).setFps(1);
